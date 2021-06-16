@@ -5,5 +5,5 @@
   gather_facts: no
   connection: network_cli
   
-  role:
+  roles:
   - { role: port_description }
