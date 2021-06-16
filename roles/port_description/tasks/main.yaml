@@ -1,0 +1,8 @@
+---
+- name: Nxos l2 Interface
+    cisco.nxos.nxos_l2_interfaces:
+      config:
+      - name: "{{ interface_id }}"
+        access:
+          vlan: "{{ vlan_id }}"
+      state: replaced
