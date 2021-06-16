@@ -1,0 +1,37 @@
+---
+configuration:
+  interfaces:
+    trunk:
+      - name: GigabitEthernet0/1
+        description: "TRUNK TO POD1SW2"
+        interface_mode: trunk
+        native_vlan:
+          members: "666"
+        allowed_vlans:
+            members: "300,350,400"
+        port_channel: 12    
+
+      - name: GigabitEthernet0/2
+        description: "TRUNK TO POD1SW2"
+        interface_mode: trunk
+        native_vlan:
+          members: "666"
+        allowed_vlans:
+            members: "300,350,400"
+        port_channel: 12
+
+      - name: Port-Channel12
+        description: "TRUNK TO POD1SW2"
+        interface_mode: trunk
+        native_vlan:
+          members: "666"
+        allowed_vlans:
+            members: "300,350,400"  
+
+      - name: GigabitEthernet0/3
+        description: "TRUNK TO POD1SW3"
+        interface_mode: trunk
+        native_vlan:
+          members: "666"
+        allowed_vlans:
+            members: "300,350,400"

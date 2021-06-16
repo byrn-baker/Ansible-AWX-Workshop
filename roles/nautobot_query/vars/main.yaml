@@ -1,0 +1,51 @@
+query_string: |
+        query {
+        devices(name: "{{device}}") {
+        inventory_hostname:name
+        config_context
+        device_role {
+                slug
+                }
+        site{
+        slug
+        vlans{
+            name
+            vid
+        }
+        }
+        interfaces {
+                name
+                description
+                enabled
+                label
+                ip_addresses {
+                    address
+                    tags {
+                    slug
+                    }
+                }
+                _custom_field_data
+                lag {
+                    name
+                }
+                tagged_vlans {
+                    vid
+                }
+                untagged_vlan {
+                    vid
+                }
+                tagged_vlans {
+                    vid
+                }
+                tags {
+                    slug
+                }
+        connected_interface{
+            device {
+            name
+            }
+            name
+        }
+                }
+            }
+        }
