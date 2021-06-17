@@ -1,7 +1,6 @@
 ---
 - name: Netbox Webhook Testing
-  hosts: 
-    - "{{ device_id }}"
+  hosts: "{{ device_id }}"
   gather_facts: no
   connection: network_cli
   
