@@ -18,4 +18,4 @@
         allowed_vlans: "{{ tagged_vlans }}"
         native_vlan: "{{ untagged_vlan }}"
     state: replaced
-  when: mode == "trunk"
+  when: mode == "tagged"
