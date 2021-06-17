@@ -4,4 +4,5 @@
     config:
     - name: "{{ interface_id }}"
       description: "{{ description }}"
+      enabled: "{{ enabled }}"
     state: replaced

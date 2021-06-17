@@ -1,19 +1,7 @@
 {   "extra_vars":   {
-        "device_id": "cloud_router",
-        "interface_id": "GigabitEthernet8",
-        "description": "THIS WORKED"
-                    }
-}
-
-
-
-
-
-
-
-curl -X POST https://192.168.130.203:8043/api/v2/job_templates/12/launch/ --application/json '{   "extra_vars":   {
-    "device_id": "cloud_router",
-    "interface_id": "GigabitEthernet8",
-    "description": "THIS WORKED"
+    "device_id": "{{ data['device']['name'] }}",
+    "interface_id": "{{ data['name'] }}",
+    "description": "{{ data['description'] }}",
+    "enabled": "{{ data['enabled'] }}"
                 }
-}' -k/--insecure
+}
