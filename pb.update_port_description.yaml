@@ -1,8 +1,8 @@
 ---
-- name: Netbox Webhook Testing
+- name: Nautobot Webhook interface update
   hosts: "{{ device_id }}"
   gather_facts: no
   connection: network_cli
   
   roles:
-  - { role: port_description }
+  - { role: updates_from_nautobot/physical_port_update }

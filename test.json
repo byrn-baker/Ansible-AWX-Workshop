@@ -1,7 +1,7 @@
 {   "extra_vars":   {
     "device_id": "{{ data['device']['name'] }}",
     "interface_id": "{{ data['name'] }}",
-    "description": "{{ data['description'] }}",
-    "enabled": "{{ data['enabled'] }}"
+    "mode": "{{ data['mode']['value'] }}",
+    "untagged_vlan": "{{ data['untagged_vlan']['vid'] }}"
                 }
 }
