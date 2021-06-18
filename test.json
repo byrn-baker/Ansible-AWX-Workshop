@@ -1,7 +1,10 @@
 {   "extra_vars":   {
-    "device_id": "{{ data['device']['name'] }}",
-    "interface_id": "{{ data['name'] }}",
-    "mode": "{{ data['mode']['value'] }}",
-    "untagged_vlan": "{{ data['untagged_vlan']['vid'] }}"
+    "device": "{{ data['device']['name'] }}",
+    "interface": "{{ data['name'] }}",
+    "dhcp_helper": "{{ data['custom_fields'['dhcp_helper'] }}",
+    "vrrp_description": "{{ data['custom_fields'['vrrp_description'] }}",
+    "vrrp_group": "{{ data['custom_fields'['vrrp_group'] }}",
+    "vrrp_primary_ip": "{{ data['custom_fields'['vrrp_primary_ip'] }}",
+    "vrrp_priority": "{{ data['custom_fields'['vrrp_priority'] }}"
                 }
-}
+} 
