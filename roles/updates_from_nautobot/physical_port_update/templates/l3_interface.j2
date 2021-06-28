@@ -6,12 +6,10 @@ interface {{ interface_id }}
  {% else %}
  no ip helper-address
  {% endif %}
- {% if vrrp_group %}
+ {% if vrrp_group != "None"%}
  vrrp {{ vrrp_group }} description {{ vrrp_description }}
  vrrp {{ vrrp_group }} ip {{ vrrp_primary_ip }}
  vrrp {{ vrrp_group }} timers learn
  vrrp {{ vrrp_group }} priority {{ vrrp_priority }}
- {% else %}
- no vrrp_group
  {% endif %}
  
