@@ -1,12 +1,12 @@
 #jinja2: lstrip_blocks: "True (or False)", trim_blocks: "True (or False)"
 interface {{ interface_id }}
- {% if dhcp_helper == "" %}
+ {% if dhcp_helper == "False"%}
  no ip helper-address
- {% elif dhcp_helper != "" %}
+ {% else %}
  no ip helper-address
  ip helper-address {{ dhcp_helper }}
  {% endif %}
- {% if vrrp_group == "None"%}
+ {% if vrrp_group == "False" %}
  no vrrp_group
  {% elif vrrp_group >= 1 %}
  vrrp {{ vrrp_group }} description {{ vrrp_description }}
