@@ -7,7 +7,7 @@
       enabled: "{{ enabled }}"   
     state: replaced
 
-- name: update interface description and admin status
+- name: update interface mtu
   cisco.ios.ios_interfaces:
     config:
     - name: "{{ interface_id }}"
