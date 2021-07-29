@@ -1,12 +1,19 @@
 ---
-- name: update interface description
+- name: update interface description and admin status
   cisco.ios.ios_interfaces:
     config:
     - name: "{{ interface_id }}"
       description: "{{ description }}"
-      enabled: "{{ enabled }}"
+      enabled: "{{ enabled }}"   
+    state: replaced
+
+- name: update interface description and admin status
+  cisco.ios.ios_interfaces:
+    config:
+    - name: "{{ interface_id }}"
       mtu: "{{ mtu }}"      
     state: replaced
+  when: mtu != "None"
 
 - name: update access vlan
   cisco.ios.ios_l2_interfaces:
