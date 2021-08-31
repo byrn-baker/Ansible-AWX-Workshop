@@ -54,7 +54,7 @@
 
 #### Arista Tasks
 - name: update interface description and admin status
-  arista.eos.eos_interface:
+  arista.eos.eos_interfaces:
     name: "{{ interface_id }}"
     description: "{{ description }}"
     enabled: "{{ enabled }}"
