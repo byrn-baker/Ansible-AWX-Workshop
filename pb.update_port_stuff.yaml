@@ -3,9 +3,6 @@
   hosts: "{{ device_id }}"
   gather_facts: no
   connection: network_cli
-  collections:
-    - cisco.ios
-    - arista.eos
   
   roles:
   - { role: updates_from_nautobot/physical_port_update }
