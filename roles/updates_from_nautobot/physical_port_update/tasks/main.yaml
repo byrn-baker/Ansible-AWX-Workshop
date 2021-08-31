@@ -40,4 +40,4 @@
   cisco.ios.ios_config:
     src: l3_interface.j2
     save_when: always
-  when: label == "layer3"
+  when: label == "Layer3"

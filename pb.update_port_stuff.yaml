@@ -6,4 +6,3 @@
   
   roles:
   - { role: updates_from_nautobot/physical_port_update }
-  when: ansible_network_os == 'ios'
