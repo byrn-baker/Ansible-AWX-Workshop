@@ -6,7 +6,6 @@
       description: "{{ description }}"
       enabled: "{{ enabled }}"   
     state: replaced
-  when: ansible_network_os == 'ios'
 
 - name: update interface mtu
   cisco.ios.ios_interfaces:
@@ -14,7 +13,7 @@
     - name: "{{ interface_id }}"
       mtu: "{{ mtu }}"      
     state: replaced
-  when: mtu != None and ansible_network_os == 'ios'
+  when: mtu != None
 
 - name: update access vlan
   cisco.ios.ios_l2_interfaces:
@@ -24,7 +23,7 @@
       access:
         vlan: "{{ untagged_vlan }}"
     state: replaced  
-  when: mode == "access" and ansible_network_os == 'ios'
+  when: "mode == "access"
 
 - name: udpate trunk vlans
   cisco.ios.ios_l2_interfaces:
@@ -35,10 +34,10 @@
         allowed_vlans: "{{ tagged_vlans }}"
         native_vlan: "{{ untagged_vlan }}"
     state: replaced
-  when: mode == "tagged" and ansible_network_os == 'ios'
+  when: mode == "tagged"
 
 - name: updating L3 configuration
   cisco.ios.ios_config:
     src: l3_interface.j2
     save_when: always
-  when: label == "layer3" and ansible_network_os == 'ios'
+  when: label == "layer3"
