@@ -55,34 +55,38 @@
 #### Arista Tasks
 - name: update interface description and admin status
   arista.eos.eos_interfaces:
-    name: "{{ interface_id }}"
-    description: "{{ description }}"
-    enabled: "{{ enabled }}"
+    config:
+      name: "{{ interface_id }}"
+      description: "{{ description }}"
+      enabled: "{{ enabled }}"
   when: "ansible_network_os == 'eos'"
 
-# - name: update interface mtu
-#   arista.eos.eos_interface:
-#     name: "{{ interface_id }}"
-#     mtu: "{{ mtu }}"      
-#   when: 
-#     - "mtu != None"
-#     - "ansible_network_os == 'eos'"
+- name: update interface mtu
+  arista.eos.eos_interface:
+    config:
+      name: "{{ interface_id }}"
+      mtu: "{{ mtu }}"      
+  when: 
+    - "mtu != None"
+    - "ansible_network_os == 'eos'"
 
-# - name: update access vlan
-#   arista.eos.eos_l2_interface:
-#     name: "{{ interface_id }}"
-#     mode: "{{ mode }}"
-#     access_vlan: "{{ untagged_vlan }}"
-#   when: 
-#     - "mode == 'access'"
-#     - "ansible_network_os == 'eos'"
+- name: update access vlan
+  arista.eos.eos_l2_interface:
+    config:
+      name: "{{ interface_id }}"
+      mode: "{{ mode }}"
+      access_vlan: "{{ untagged_vlan }}"
+  when: 
+    - "mode == 'access'"
+    - "ansible_network_os == 'eos'"
 
-# - name: udpate trunk vlans
-#   arista.eos.eos_l2_interface:
-#     name: "{{ interface_id }}"
-#     mode: "{{ mode | replace('tagged', 'trunk') }}"
-#     trunk_allowed_vlans: "{{ tagged_vlans }}"
-#     native_vlan: "{{ untagged_vlan }}"
-#   when:
-#     - "mode == 'tagged'"
-#     - "ansible_network_os == 'eos'"
+- name: udpate trunk vlans
+  arista.eos.eos_l2_interface:
+    config:
+      name: "{{ interface_id }}"
+      mode: "{{ mode | replace('tagged', 'trunk') }}"
+      trunk_allowed_vlans: "{{ tagged_vlans }}"
+      native_vlan: "{{ untagged_vlan }}"
+  when:
+    - "mode == 'tagged'"
+    - "ansible_network_os == 'eos'"
