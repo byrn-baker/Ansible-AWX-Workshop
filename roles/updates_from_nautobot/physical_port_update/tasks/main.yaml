@@ -23,7 +23,7 @@
       access:
         vlan: "{{ untagged_vlan }}"
     state: replaced  
-  when: "mode == "access"
+  when: mode == "access"
 
 - name: udpate trunk vlans
   cisco.ios.ios_l2_interfaces:
