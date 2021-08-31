@@ -59,7 +59,6 @@
     - name: "{{ interface_id }}"
       description: "{{ description }}"
       enabled: "{{ enabled }}"
-    state: replaced
   when: "ansible_network_os == 'eos'"
 
 - name: update interface mtu
@@ -67,7 +66,6 @@
     config:
     - name: "{{ interface_id }}"
       mtu: "{{ mtu }}"
-    state: replaced
   when: 
     - "mtu != None"
     - "ansible_network_os == 'eos'"
@@ -78,7 +76,6 @@
     - name: "{{ interface_id }}"
       mode: "{{ mode }}"
       access_vlan: "{{ untagged_vlan }}"
-    state: replaced
   when: 
     - "mode == 'access'"
     - "ansible_network_os == 'eos'"
@@ -90,7 +87,6 @@
       mode: "{{ mode | replace('tagged', 'trunk') }}"
       trunk_allowed_vlans: "{{ tagged_vlans }}"
       native_vlan: "{{ untagged_vlan }}"
-    state: replaced
   when:
     - "mode == 'tagged'"
     - "ansible_network_os == 'eos'"
