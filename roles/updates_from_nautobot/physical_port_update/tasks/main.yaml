@@ -62,7 +62,7 @@
   when: "ansible_network_os == 'eos'"
 
 - name: update interface mtu
-  arista.eos.eos_interface:
+  arista.eos.eos_interfaces:
     config:
     - name: "{{ interface_id }}"
       mtu: "{{ mtu }}"
@@ -71,7 +71,7 @@
     - "ansible_network_os == 'eos'"
 
 - name: update access vlan
-  arista.eos.eos_l2_interface:
+  arista.eos.eos_l2_interfaces:
     config:
     - name: "{{ interface_id }}"
       mode: "{{ mode }}"
@@ -81,7 +81,7 @@
     - "ansible_network_os == 'eos'"
 
 - name: udpate trunk vlans
-  arista.eos.eos_l2_interface:
+  arista.eos.eos_l2_interfaces :
     config:
     - name: "{{ interface_id }}"
       mode: "{{ mode | replace('tagged', 'trunk') }}"
