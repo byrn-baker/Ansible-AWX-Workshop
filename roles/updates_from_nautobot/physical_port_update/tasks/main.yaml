@@ -7,7 +7,7 @@
       description: "{{ description }}"
       enabled: "{{ enabled }}"   
     state: replaced
-  when: "ansible_network_os == 'ios'"
+  when: ansible_network_os == 'ios'
 
 - name: update interface mtu
   cisco.ios.ios_interfaces:
@@ -16,8 +16,8 @@
       mtu: "{{ mtu }}"      
     state: replaced
   when: 
-    - "mtu != None"
-    - "ansible_network_os == 'ios'"
+    - mtu != None
+    - ansible_network_os == 'ios'
 
 - name: update access vlan
   cisco.ios.ios_l2_interfaces:
@@ -28,8 +28,8 @@
         vlan: "{{ untagged_vlan }}"
     state: replaced  
   when: 
-    - "mode == 'access'"
-    - "ansible_network_os == 'ios'"
+    - mode == 'access'
+    - ansible_network_os == 'ios'
 
 - name: udpate trunk vlans
   cisco.ios.ios_l2_interfaces:
@@ -41,24 +41,24 @@
         native_vlan: "{{ untagged_vlan }}"
     state: replaced
   when:
-    - "mode == 'tagged'"
-    - "ansible_network_os == 'ios'"
+    - mode == 'tagged'
+    - ansible_network_os == 'ios'
 
 - name: updating L3 configuration
   cisco.ios.ios_config:
     src: l3_interface.j2
     save_when: always
   when:
-    - "label == 'Layer3'"
-    - "ansible_network_os == 'ios'"
+    - label == 'Layer3'
+    - ansible_network_os == 'ios'
 
-# #### Arista Tasks
-# - name: update interface description and admin status
-#   arista.eos.eos_interface:
-#     name: "{{ interface_id }}"
-#     description: "{{ description }}"
-#     enabled: "{{ enabled }}"
-#   when: "ansible_network_os == 'eos'"
+#### Arista Tasks
+- name: update interface description and admin status
+  arista.eos.eos_interface:
+    name: "{{ interface_id }}"
+    description: "{{ description }}"
+    enabled: "{{ enabled }}"
+  when: "ansible_network_os == 'eos'"
 
 # - name: update interface mtu
 #   arista.eos.eos_interface:
@@ -85,4 +85,4 @@
 #     native_vlan: "{{ untagged_vlan }}"
 #   when:
 #     - "mode == 'tagged'"
-#     - "ansible_network_os == 'ios'"
+#     - "ansible_network_os == 'eos'"
