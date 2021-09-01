@@ -57,8 +57,14 @@
   arista.eos.eos_interfaces:
     config:
     - name: "{{ interface_id }}"
-      description: "{{ description }}"
       enabled: "{{ enabled }}"
+  when: "ansible_network_os == 'eos'"
+
+- name: Arista update interface description and admin status
+  arista.eos.eos_interfaces:
+    config:
+    - name: "{{ interface_id }}"
+      description: "{{ description }}"
     state: replaced
   when: 
     - "description != ''"
