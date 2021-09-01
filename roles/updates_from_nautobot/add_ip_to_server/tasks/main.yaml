@@ -1,0 +1,4 @@
+- name: Set eth0 IPv4 address
+  ansible.netcommon.net_l3_interface:
+    name: ens3
+    ipv4: 155.1.2.33/24

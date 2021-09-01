@@ -1,0 +1,9 @@
+---
+- name: Nautobot Webhook Add IP to Server ethernet interface
+  hosts: "{{ device_id }}"
+  gather_facts: true
+  connection: network_cli
+  become: true
+  
+  roles:
+  - { role: updates_from_nautobot/add_ip_to_server }

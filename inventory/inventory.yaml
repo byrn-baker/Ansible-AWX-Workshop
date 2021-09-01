@@ -22,6 +22,10 @@ all:
         pod1_access_switch02:
           ansible_host: 192.168.4.8
           ansible_network_os: eos
+        pod1_Demo_Server:
+          ansible_host: 192.168.4.31
+          ansible_user: ansible
+          ansible_password: ansible
     pod2:
       hosts:
         pod2_spine2:
@@ -42,3 +46,7 @@ all:
         pod2_access_switch04:
           ansible_host: 192.168.4.12
           ansible_network_os: junos
+        pod2_demo_server:
+          ansible_host: 192.168.4.33
+          ansible_user: ansible
+          ansible_password: ansible

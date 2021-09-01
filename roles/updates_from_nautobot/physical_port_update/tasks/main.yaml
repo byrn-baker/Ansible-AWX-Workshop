@@ -181,7 +181,6 @@
   junipernetworks.junos.junos_l2_interfaces:
     config:
     - name: "{{ interface_id }}"
-      mode: "{{ mode }}"
       access:
         vlan: "{{ untagged_vlan }}"
     state: merged
