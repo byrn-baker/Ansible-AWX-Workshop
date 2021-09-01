@@ -93,9 +93,3 @@
   when:
     - "mode == 'tagged'"
     - "ansible_network_os == 'eos'"
-
-# - name: updating L3 configuration
-#   arista.eos.eos_l3_interfaces:
-#     config:
-#       - name: "{{ interface_id }}"
-#         ipv4: ""
