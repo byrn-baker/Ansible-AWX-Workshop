@@ -156,7 +156,7 @@
     config:
     - name: "{{ interface_id }}"
       enabled: "True"
-    state: replaced
+    state: overridden
   when: 
     - "enabled == 'True'"
     - "ansible_network_os == 'junos'"
@@ -166,7 +166,7 @@
     config:
     - name: "{{ interface_id }}"
       description: "{{ description }}"
-    state: replaced
+    state: merged
   when: 
     - "description != ''"
     - "ansible_network_os == 'junos'"
@@ -176,7 +176,7 @@
     config:
     - name: "{{ interface_id }}"
       mtu: "{{ mtu }}"
-    state: replaced
+    state: merged
   when: 
     - "mtu != 'None'"
     - "ansible_network_os == 'junos'"
@@ -188,7 +188,7 @@
       mode: "{{ mode }}"
       access:
         vlan: "{{ untagged_vlan }}"
-    state: replaced
+    state: merged
   when: 
     - "mode == 'access'"
     - "ansible_network_os == 'junos'"
