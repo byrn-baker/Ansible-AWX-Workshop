@@ -1,6 +1,18 @@
-- name: updating L3 configuration
+- name: Arista adding IP address
   arista.eos.eos_l3_interfaces:
     config:
       - name: "{{ interface_id }}"
         ipv4:
           - address: "{{ ipv4_address }}"
+  when:
+    - event == 'created'
+    - ansible_network_os == 'eos'
+
+- name: Arista removing IP address
+  arista.eos.eos_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+    state: deleted
+  when:
+    - event == 'deleted'
+    - ansible_network_os == 'eos'
