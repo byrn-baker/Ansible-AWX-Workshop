@@ -31,6 +31,17 @@
     - event == 'updated'
     - ansible_network_os == 'junos'
 
+- name: Juniper adding IP address
+  junipernetworks.junos.junos_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+        ipv4:
+          - address: "{{ ipv4_address }}"
+    state: overridden
+  when:
+    - event == 'updated'
+    - ansible_network_os == 'junos'
+
 - name: Juniper removing IP address
   junipernetworks.junos.junos_l3_interfaces:
     config:
