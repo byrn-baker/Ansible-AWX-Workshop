@@ -95,6 +95,7 @@
     config:
     - name: "{{ interface_id }}"
       description: "{{ description }}"
+      enabled: "{{ enabled }}"
   when: 
     - "description != ''"
     - "ansible_network_os == 'eos'"
