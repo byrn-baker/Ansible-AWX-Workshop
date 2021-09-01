@@ -60,7 +60,9 @@
       description: "{{ description }}"
       enabled: "{{ enabled }}"
     state: replaced
-  when: "ansible_network_os == 'eos'"
+  when: 
+    - "description != ''"
+    - "ansible_network_os == 'eos'"
 
 - name: update interface mtu
   arista.eos.eos_interfaces:
