@@ -134,10 +134,9 @@
 
 #### Juniper Tasks
 - name: Juniper removing l2 configuration
-  junipernetworks.junos.junos_l2_interfaces:
-    config:
-    - name: "{{ interface_id }}"
-    state: deleted
+  junipernetworks.junos.junos_config:
+    lines:
+      - delete interfaces {{ interface_id }} unit 0 family ethernet-switching
   when: 
     - "mode == ''"
     - "ansible_network_os == 'junos'"

@@ -26,7 +26,6 @@
       - name: "{{ interface_id }}"
         ipv4:
           - address: "{{ ipv4_address }}"
-    state: overridden
   when:
     - event == 'created'
     - ansible_network_os == 'junos'
@@ -37,7 +36,6 @@
       - name: "{{ interface_id }}"
         ipv4:
           - address: "{{ ipv4_address }}"
-    state: overridden
   when:
     - event == 'updated'
     - ansible_network_os == 'junos'
