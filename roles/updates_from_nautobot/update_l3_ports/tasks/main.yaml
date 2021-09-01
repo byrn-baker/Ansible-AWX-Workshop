@@ -1,3 +1,4 @@
+#### Arista
 - name: Arista adding IP address
   arista.eos.eos_l3_interfaces:
     config:
@@ -16,3 +17,24 @@
   when:
     - event == 'deleted'
     - ansible_network_os == 'eos'
+
+#### Juniper
+- name: Juniper adding IP address
+  junipernetworks.junos.junos_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+        ipv4:
+          - address: "{{ ipv4_address }}"
+    state: overridden
+  when:
+    - event == 'created'
+    - ansible_network_os == 'junos'
+
+- name: Juniper removing IP address
+  junipernetworks.junos.junos_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+    state: deleted
+  when:
+    - event == 'deleted'
+    - ansible_network_os == 'junos'
