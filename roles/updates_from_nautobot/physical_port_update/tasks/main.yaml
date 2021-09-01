@@ -91,7 +91,7 @@
       mode: "{{ mode | replace('tagged', 'trunk') }}"
       trunk_allowed_vlans: "{{ tagged_vlans }}"
       # native_vlan: 666
-    state: replaced
+    state: present
   when:
     - "mode == 'tagged'"
     - "ansible_network_os == 'eos'"
