@@ -3,7 +3,7 @@
   hosts: "{{ device_id }}"
   gather_facts: no
   # connection: network_cli
-  become: true
+  # become: true
   
   roles:
   - { role: updates_from_nautobot/physical_port_update }
