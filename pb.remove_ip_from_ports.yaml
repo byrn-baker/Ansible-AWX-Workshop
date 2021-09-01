@@ -1,0 +1,9 @@
+---
+- name: Nautobot Webhook vlan update
+  hosts: "{{ device_id }}"
+  gather_facts: no
+  # connection: network_cli
+  # become: true
+  
+  roles:
+  - { role: updates_from_nautobot/update_l3_ports }

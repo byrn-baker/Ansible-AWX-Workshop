@@ -1,0 +1,19 @@
+#### Arista
+- name: Arista removing IP address from on {{ interface_id }}
+  arista.eos.eos_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+    state: deleted
+  when:
+    - event == 'deleted'
+    - ansible_network_os == 'eos'
+
+#### Juniper
+- name: Juniper removing IP address from {{ interface_id }}
+  junipernetworks.junos.junos_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+    state: deleted
+  when:
+    - event == 'deleted'
+    - ansible_network_os == 'junos'
