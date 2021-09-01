@@ -4,3 +4,5 @@ collections:
     version: 2.2.0
   - name: arista.eos
     version: 3.0.0
+  - name: junipernetworks.junos
+    version: 2.5.0
