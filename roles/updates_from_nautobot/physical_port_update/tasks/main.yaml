@@ -86,7 +86,6 @@
     config:
     - name: "{{ interface_id }}"
       enabled: "True"
-    state: replaced
   when: 
     - "enabled == 'True'"
     - "ansible_network_os == 'eos'"
@@ -96,7 +95,6 @@
     config:
     - name: "{{ interface_id }}"
       description: "{{ description }}"
-    state: replaced
   when: 
     - "description != ''"
     - "ansible_network_os == 'eos'"
@@ -106,7 +104,7 @@
     config:
     - name: "{{ interface_id }}"
       mtu: "{{ mtu }}"
-    state: replaced
+    # state: replaced
   when: 
     - "mtu != 'None'"
     - "ansible_network_os == 'eos'"
