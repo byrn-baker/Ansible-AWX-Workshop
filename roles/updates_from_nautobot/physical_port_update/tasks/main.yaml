@@ -53,13 +53,34 @@
     - ansible_network_os == 'ios'
 
 #### Arista Tasks
-- name: Arista update interface admin status
+- name: Arista removing l2 configuration
+  arista.eos.eos_l2_interfaces:
+    config:
+    - name: "{{ interface_id }}"
+    state: deleted
+  when: 
+    - "mode == ''"
+    - "ansible_network_os == 'eos'"
+
+- name: Arista update interface admin up status
   arista.eos.eos_interfaces:
     config:
     - name: "{{ interface_id }}"
-      enabled: 
-    state: merged
-  when: "ansible_network_os == 'eos'"
+      enabled: "False"
+    state: replaced
+  when: 
+    - "enabled == 'False'"
+    - "ansible_network_os == 'eos'"
+
+- name: Arista update interface admin up status
+  arista.eos.eos_interfaces:
+    config:
+    - name: "{{ interface_id }}"
+      enabled: "True"
+    state: replaced
+  when: 
+    - "enabled == 'True'"
+    - "ansible_network_os == 'eos'"
 
 - name: Arista update interface description
   arista.eos.eos_interfaces:
@@ -91,15 +112,6 @@
     state: replaced
   when: 
     - "mode == 'access'"
-    - "ansible_network_os == 'eos'"
-
-- name: Arista removing l2 configuration
-  arista.eos.eos_l2_interfaces:
-    config:
-    - name: "{{ interface_id }}"
-    state: deleted
-  when: 
-    - "mode == ''"
     - "ansible_network_os == 'eos'"
 
 - name: Arista udpate trunk vlans
