@@ -86,10 +86,9 @@
 
 - name: udpate trunk vlans
   arista.eos.eos_l2_interface:
-    config:
-    - name: "{{ interface_id }}"
-      mode: "{{ mode | replace('tagged', 'trunk') }}"
-      trunk_allowed_vlans: "{{ tagged_vlans }}"
+    name: "{{ interface_id }}"
+    mode: "{{ mode | replace('tagged', 'trunk') }}"
+    trunk_allowed_vlans: "{{ tagged_vlans }}"
       # native_vlan: 666
   when:
     - "mode == 'tagged'"
