@@ -89,7 +89,7 @@
     config:
     - name: "{{ interface_id }}"
       mode: "{{ mode | replace('tagged', 'trunk') }}"
-      trunk_vlans: "{{ tagged_vlans }}"
+      trunk_allowed_vlans: "{{ tagged_vlans }}"
       # native_vlan: 666
     state: present
   when:
