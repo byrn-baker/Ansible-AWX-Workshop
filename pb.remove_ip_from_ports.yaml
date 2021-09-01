@@ -6,4 +6,4 @@
   # become: true
   
   roles:
-  - { role: updates_from_nautobot/update_l3_ports }
+  - { role: updates_from_nautobot/remove_ip }
