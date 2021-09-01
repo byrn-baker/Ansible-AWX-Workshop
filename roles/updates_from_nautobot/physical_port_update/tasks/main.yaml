@@ -57,7 +57,8 @@
   arista.eos.eos_interfaces:
     config:
     - name: "{{ interface_id }}"
-      enabled: "{{ enabled }}"
+      enabled: 
+    state: merged
   when: "ansible_network_os == 'eos'"
 
 - name: Arista update interface description
@@ -92,6 +93,15 @@
     - "mode == 'access'"
     - "ansible_network_os == 'eos'"
 
+- name: Arista removing l2 configuration
+  arista.eos.eos_l2_interfaces:
+    config:
+    - name: "{{ interface_id }}"
+    state: deleted
+  when: 
+    - "mode == ''"
+    - "ansible_network_os == 'eos'"
+
 - name: Arista udpate trunk vlans
   arista.eos.eos_l2_interface:
     name: "{{ interface_id }}"
@@ -101,3 +111,5 @@
   when:
     - "mode == 'tagged'"
     - "ansible_network_os == 'eos'"
+
+  
