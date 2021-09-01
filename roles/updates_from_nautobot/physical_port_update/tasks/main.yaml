@@ -69,7 +69,7 @@
       mtu: "{{ mtu }}"
     state: replaced
   when: 
-    - "mtu != None"
+    - "mtu != 'None'"
     - "ansible_network_os == 'eos'"
 
 - name: update access vlan
