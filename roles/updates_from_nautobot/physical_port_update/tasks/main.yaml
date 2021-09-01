@@ -66,7 +66,7 @@
   arista.eos.eos_config:
     lines:
     - shutdown
-    parents: interface "{{ interface_id }}"
+    parents: interface {{ interface_id }}
   when: 
     - "enabled == 'False'"
     - "ansible_network_os == 'eos'"
