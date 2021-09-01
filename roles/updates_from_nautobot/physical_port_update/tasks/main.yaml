@@ -152,11 +152,9 @@
     - "ansible_network_os == 'junos'"
 
 - name: Juniper Enable interface
-  junipernetworks.junos.junos_interfaces:
-    config:
-    - name: "{{ interface_id }}"
-      enabled: "True"
-    state: overridden
+  junipernetworks.junos.junos_config:
+    lines:
+    - delete interfaces {{ interface_id }} disable
   when: 
     - "enabled == 'True'"
     - "ansible_network_os == 'junos'"
