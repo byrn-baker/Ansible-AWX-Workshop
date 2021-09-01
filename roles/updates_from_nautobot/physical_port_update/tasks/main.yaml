@@ -62,24 +62,24 @@
     - "mode == ''"
     - "ansible_network_os == 'eos'"
 
-- name: Arista Disable interface
-  arista.eos.eos_config:
-    lines:
-    - shutdown
-    parents: "interface {{ interface_id }}"
-  when: 
-    - "enabled == 'False'"
-    - "ansible_network_os == 'eos'"
-
 # - name: Arista Disable interface
-#   arista.eos.eos_interfaces:
-#     config:
-#     - name: "{{ interface_id }}"
-#       enabled: "False"
-#     state: replaced
+#   arista.eos.eos_config:
+#     lines:
+#     - shutdown
+#     parents: "interface {{ interface_id }}"
 #   when: 
 #     - "enabled == 'False'"
 #     - "ansible_network_os == 'eos'"
+
+- name: Arista Disable interface
+  arista.eos.eos_interfaces:
+    config:
+    - name: "{{ interface_id }}"
+      enabled: "False"
+    # state: replaced
+  when: 
+    - "enabled == 'False'"
+    - "ansible_network_os == 'eos'"
 
 - name: Arista Enable interface
   arista.eos.eos_interfaces:
