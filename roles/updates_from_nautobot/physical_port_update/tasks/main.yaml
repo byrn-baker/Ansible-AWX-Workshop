@@ -193,10 +193,12 @@
 
 - name: Juniper udpate trunk vlans
   junipernetworks.junos.junos_l2_interfaces:
-    name: "{{ interface_id }}"
-    mode: "{{ mode | replace('tagged', 'trunk') }}"
-    trunk_allowed_vlans: "{{ tagged_vlans }}"
-      # native_vlan: 666
+    config:
+      name: "{{ interface_id }}"
+      mode: "{{ mode | replace('tagged', 'trunk') }}"
+      trunk_allowed_vlans: "{{ tagged_vlans }}"
+        # native_vlan: 666
+    
   when:
     - "mode == 'tagged'"
     - "ansible_network_os == 'junos'"
