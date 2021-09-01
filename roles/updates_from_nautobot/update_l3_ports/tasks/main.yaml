@@ -28,6 +28,7 @@
     state: overridden
   when:
     - event == 'created'
+    - event == 'updated'
     - ansible_network_os == 'junos'
 
 - name: Juniper removing IP address
