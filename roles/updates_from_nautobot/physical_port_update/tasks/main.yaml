@@ -195,8 +195,8 @@
   junipernetworks.junos.junos_l2_interfaces:
     config:
     - name: "{{ interface_id }}"
-      mode: "{{ mode | replace('tagged', 'trunk') }}"
-      trunk_allowed_vlans: "{{ tagged_vlans }}"
+      trunk:
+        allowed_vlans: "{{ tagged_vlans }}"
         # native_vlan: 666
   when:
     - "mode == 'tagged'"
