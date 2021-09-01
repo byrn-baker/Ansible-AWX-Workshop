@@ -2,4 +2,5 @@
   arista.eos.eos_l3_interfaces:
     config:
       - name: "{{ interface_id }}"
-        ipv4: "{{ ipv4_address }}"
+        ipv4:
+          - address: "{{ ipv4_address }}"
