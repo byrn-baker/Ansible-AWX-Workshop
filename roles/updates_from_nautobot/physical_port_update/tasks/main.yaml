@@ -53,14 +53,14 @@
     - ansible_network_os == 'ios'
 
 #### Arista Tasks
-- name: Arista update interface description and admin status
+- name: Arista update interface admin status
   arista.eos.eos_interfaces:
     config:
     - name: "{{ interface_id }}"
       enabled: "{{ enabled }}"
   when: "ansible_network_os == 'eos'"
 
-- name: Arista update interface description and admin status
+- name: Arista update interface description
   arista.eos.eos_interfaces:
     config:
     - name: "{{ interface_id }}"
