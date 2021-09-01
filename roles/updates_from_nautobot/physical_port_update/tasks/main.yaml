@@ -91,6 +91,7 @@
       mode: "{{ mode | replace('tagged', 'trunk') }}"
       trunk:
         trunk_vlans: "{{ tagged_vlans }}"
+        native_vlan: 666
     state: replaced
   when:
     - "mode == 'tagged'"
