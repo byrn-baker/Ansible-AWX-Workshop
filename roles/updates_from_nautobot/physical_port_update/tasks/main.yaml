@@ -144,7 +144,7 @@
     - "ansible_network_os == 'junos'"
 
 - name: Juniper Disable interface
-  Juniper.eos.eos_config:
+  junipernetworks.junos.junos_config:
     lines:
     - set interfaces {{ interface_id }} disable
     parents: interface {{ interface_id }}
