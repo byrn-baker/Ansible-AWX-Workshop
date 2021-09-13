@@ -1,3 +1,35 @@
+#### Cisco
+- name: Cisco adding IP address on {{ interface_id }}
+  cisco.ios.ios_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+        ipv4:
+          - address: "{{ ipv4_address }}"
+    state: replaced
+  when:
+    - event == 'created'
+    - ansible_network_os == 'ios'
+
+- name: Cisco updating IP address on {{ interface_id }}
+  cisco.ios.ios_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+        ipv4:
+          - address: "{{ ipv4_address }}"
+    state: replaced
+  when:
+    - event == 'updated'
+    - ansible_network_os == 'ios'
+
+- name: Cisco updating IP address on {{ interface_id }}
+  cisco.ios.ios_l3_interfaces:
+    config:
+      - name: "{{ interface_id }}"
+    state: deleted
+  when:
+    - event == 'delete'
+    - ansible_network_os == 'ios'
+
 #### Arista
 - name: Arista adding IP address on {{ interface_id }}
   arista.eos.eos_l3_interfaces:
