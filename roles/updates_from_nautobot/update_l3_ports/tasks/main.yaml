@@ -4,10 +4,11 @@
     config:
       - name: "{{ interface_id }}"
         ipv4:
-          - address: "{{ ipv4_address }}"
+          - address: "{{ address }} {{ mask }}"
     state: replaced
   when:
     - event == 'created'
+    - family == '4'
     - ansible_network_os == 'ios'
 
 - name: Cisco updating IP address on {{ interface_id }}
@@ -15,10 +16,11 @@
     config:
       - name: "{{ interface_id }}"
         ipv4:
-          - address: "{{ ipv4_address }}"
+          - address: "{{ address }} {{ mask }}"
     state: replaced
   when:
     - event == 'updated'
+    - family == '4'
     - ansible_network_os == 'ios'
 
 - name: Cisco updating IP address on {{ interface_id }}
