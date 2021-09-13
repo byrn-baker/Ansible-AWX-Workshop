@@ -2,7 +2,7 @@
 - name: Nautobot Webhook interface update
   hosts: "{{ device_id }}"
   gather_facts: no
-  # connection: network_cli
+  connection: network_cli
   # become: true
   
   roles:
