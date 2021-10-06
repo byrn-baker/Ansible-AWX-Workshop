@@ -183,7 +183,7 @@
     - name: "{{ interface_id }}"
       access:
         vlan: "{{ untagged_vlan }}"
-    state: merged
+    state: overridden
   when: 
     - "mode == 'access'"
     - "ansible_network_os == 'junos'"

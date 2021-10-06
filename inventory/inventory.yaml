@@ -43,6 +43,7 @@ all:
         pod2_access_switch03:
           ansible_host: 192.168.4.11
           ansible_network_os: junos
+          ansible_connection: netconf
         pod2_access_switch04:
           ansible_host: 192.168.4.12
           ansible_network_os: junos
