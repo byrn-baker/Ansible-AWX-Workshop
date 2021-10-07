@@ -19,6 +19,8 @@ all:
         pod1_access_switch01:
           ansible_host: 192.168.4.4
           ansible_network_os: eos
+          ansible_user: automate
+          ansible_password: Automate
         pod1_access_switch02:
           ansible_host: 192.168.4.8
           ansible_network_os: eos

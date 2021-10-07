@@ -1,12 +1,12 @@
 {
-    "device_id": "pod2_access_switch03",
-    "interface_id": "xe-0/0/6",
-    "label": "",
-    "mode": "access",
-    "untagged_vlan": "10",
-    "tagged_vlans": "",
-    "named_vlans": "",
-    "description": "POD2_DEMO_SERVER",
-    "enabled": "True",
-    "mtu": "None"
-  }
+  "device_id": "pod1_access_switch01",
+  "interface_id": "Ethernet6",
+  "label": "",
+  "mode": "access",
+  "untagged_vlan": "20",
+  "tagged_vlans": "",
+  "named_vlans": "",
+  "description": "POD1_DEMO_SERVER",
+  "enabled": "True",
+  "mtu": "None"
+}
