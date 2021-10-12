@@ -163,7 +163,7 @@
     junipernetworks.junos.junos_config:
       lines:
       - delete interfaces {{ interface_id }} disable
-    when: 
+    when:
       - "enabled == 'True'"
       - "ansible_network_os == 'junos'"
 

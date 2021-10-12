@@ -41,6 +41,7 @@
           - address: "{{ ipv4_address }}"
   when:
     - event == 'created'
+    - family == '4'
     - ansible_network_os == 'eos'
 
 - name: Arista updating IP address on {{ interface_id }}
@@ -51,6 +52,7 @@
           - address: "{{ ipv4_address }}"
   when:
     - event == 'updated'
+    - family == '4'
     - ansible_network_os == 'eos'
 
 #### Juniper
@@ -62,6 +64,7 @@
           - address: "{{ ipv4_address }}"
   when:
     - event == 'created'
+    - family == '4'
     - ansible_network_os == 'junos'
 
 - name: Juniper updating IP address on {{ interface_id }}
@@ -72,4 +75,5 @@
           - address: "{{ ipv4_address }}"
   when:
     - event == 'updated'
+    - family == '4'
     - ansible_network_os == 'junos'
